@@ -1,0 +1,92 @@
+---
+title: "Maisto produktų ir energinių prekių kainų pokyčiai Lietuvoje 2018 metais."
+author: "Daniel Senkevič"
+date: "6/19/2019"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, collapse = TRUE, error = TRUE, warning = FALSE, message = FALSE)
+```
+
+```{r, echo=FALSE}
+if(!require(rsdmx)) install.packages("rsdmx"); require(rsdmx)
+if(!require(tidyverse)) install.packages("tidyverse"); require(tidyverse)
+```
+
+\newpage
+
+## ĮVADAS
+
+Maisto produktai yra svarbiausias prekių rūšis, šiuos prekės galima klasifikuoti kaip pirmos būtinybės. Šių prekių kainų pokyčiai, kuriuos eiliniai gyventojai laiko nenumatomais ir dažniausiai mažai nereikšmingais, neretai turi didelė įtaką gyventojų gerbūviui, infliacijai, šalies besivystymui – o tai reiškia šalies ekonomikai ir piliečių gyvenimams. Išanalizavus kiekvieno mėnesio pirmos būtinybės kainų pokyčius ir sudėjus juos į bendrą metinių kainų pokyčių analizę, galima suprasti kokie veiksniai turėjo įtakos šių kainų pokyčiams, iš juos klasifikuoti, taip pat juos išanalizuoti. Tai padėtų daryti artimiausių laikotarpių (metų) maisto produktų kainų prognozės, suprasti kaip keisis kainos artimiausių laikotarpių, kam būti pasiruošę ir galvoti apie šių problemų išvengimo kelius ir būdus. 
+\newpage
+
+## Kainų palyginimas 2018 ir ankstesniais metais, veiksnių turinčių įtakos maisto produktų kainom analizė.
+
+Kaip jau buvo anksčiau minėta, praėjusiu laikotarpių kainų analizė gali būti itin reikšminga norint prognozuoti busimų metų kainų pokyčius. Norint prognozuoti 2019 metų maisto produktų pokyčius reikėtų pirmiausiai išanalizuoti kaip kito kainos per 2018 metus palyginant su 2017 metais ir kitais metais – taip galima būtų išreikšti pagrindinius veiksnius turinčius įtakos kainoms. Maisto produktų srityje kainoms turinčių įtakos veiksnių yra be abejo daugiausiai, tai gali būti paprastos oro sąlygos arba netgi politiniai faktoriai, kurie yra aprašomi žemiau.
+
+Pagal Lietuvos Statistikos Departamentą per 2018 metus (palyginant su 2017 metais) maisto produktu kainos pakilo 1,4%. Jau kelius metus Lietuvoje yra stebimas maisto produktų kainų augimas, kas nėra blogai nes lietas kainų augimas yra vienas iš šalies ekonomikos augimo rodyklių, tai sąlygoja maža infliacija, sezoniškumas, politiniai bei kiti išoriniai veiksniai. Verta pabriežti, kad visoje Europos Sąjungoje per paskutinius metus maisto prekių kainos tiktai lietai augo, nors prieš tai buvo staigus kainų sumažėjimas susijęs su politiniais veiksnias. Pagal Vilniaus Universiteto doktorantą Justiną Mundeikį, tai yra susiję, su tuo, kad po kelių metų maisto žaliavų pertekliaus, pasaulis priprato tam ir rinka susibalansavo, t.y. pradėta gaminti mažiau produkcijos. Tam taip pat galėjo turėti įtakos „Rusijos įvestas maisto produktų embargas. Pavyzdžiui, labai buvo atpigęs pienas ir jo produktai, sūris, kiaušiniai, nes nebegalėjome eksportuoti į Rusiją“. Taip pat J. Mundeikis teigia, kad euro įvedimas neturi įtakos kainų didėjimui, nes „Nieko bendro su euro įvedimu kainos neturi. Eurostatas atlikęs 2015 metų I ketvirčio tyrimą po euro įvedimo nustatė, kad realiai kainos nelabai pakito.“, jo teigimu tuo metų buvo daug veiksnių, kurie galėjo turėti įtakos kainų pokyčiams, kuriuos visuomenė galėjo nepastebėti ir interpretuoti kaip euro įvedimo pasekmė, bet kaip jau pasakyta atlikti tyrimai ir statistika padaryta iš kart po euro įvedimo neužfiksavo didelio maisto produktų kainų pokyčio, kas parodo, kad vėlesnis kainų augimas nebuvo susijęs su euro įvedimų.
+
+Verta pabriežti, kad maisto produktų sezoniškumas, taip pat turi įtakos skirtingų maisto produktų kainoms. Dėl žymiai didėjančios pasiūlos ir lėčiau, nei pasiūla, didėjančios paklausos maisto produktų derliaus metų kainos mažėja, nes rinkoje atsiranda daugiau pardavėjų norinčiu parduoti savo prekė, kol nepasibaigė jų galiojimo laikas. Bet toks sezoniškas kainų pokytis turi mažai įtakos metiniams kainų pokyčiams, nes pasibaigus sezonui – iš rinkos išeina mažieji verslininkai, kad grįžti kitą sezoną ir kainos grįžta į prieš tai buvusias pozicijas. Dėl įvairių aplinkybių (nepalankių orų, mažų derlių ir kitų) mažiems pardavėjams nėra verta parduoti savo produkciją tuo metų ir dėl pasilikusiu didžiausiu ir ištvirkavusių verslininkų, kurie savo produkcijai pagaminti patiria daugiau kaštų, ir mažesnio konkurentų kiekio – kainos vėl pradeda augti ir metinėje perspektyvoje situacija normalizuojasi, nes kainos grįžta į prieš tai esančias. Kaip pavyzdys čia galėtų būti mandarinų kainos, kuriuos žymiai sumažėja žiemos sezoną, pagal Lietuvos Statistikos Departamento duomenis apie 50% (2018 gruodžio mėn. mandarinai buvo 53,4% pigesni palyginus su 2018 rugsėjo mėn.) ir daugiau palyginus su vasaros sezonų, ir po to, pasibaigus sezonui, vėl pradeda atgal augti. Tokia situaciją mes matome, nes dėl padidėjusios pasiūlos ir konkurentų mažinamos kainos sezono metu, verslininkas yra pasiruošęs sumažinti kainą iki tuo momento, kol jis gauna pelną ir parduoti savo produkciją kol jos galiojimo laikas nepasibaigė.
+
+```{r, include=TRUE, echo = FALSE}
+if(!require(ggplot2)) install.packages("ggplot2"); require(ggplot2)
+df <- data.frame(date = factor(c("2018.01", "2018.02", "2018.03", "2018.04", "2018.05", "2018.06", "2018.07", "2018.08", "2018.09", "2018.10", "2018.11", "2018.12")),
+                  x = c(-7.5, 12.9, 0, 10.6, 0, 26.9, 0, 0, 12.4, -6.5, -26.1, -20.8))
+df = df[order(df$date),]
+barplot(df$x,main=paste("Kaip kito kainos (mandarinai) 2018 metais"), names.arg = df$date, horiz = TRUE, las = 2, xlim = c(-30, 30), col = "red", beside = TRUE)
+```
+
+Pastaba: Duomenys rinkti rankiniu būdu iš LSD tinklalapio.
+
+Dar vienas faktorius turintis nemažai įtakos maisto produktų kainai yra tiesioginė maisto produktų priklausomybė naftos produktų kainai. Jau ne karta buvo pastebėta, kad didėjant naftos produktų kainai didėja ir maisto produktų kainos – tai yra aiškinama tuo, kad kintant transporto kuro kainai kinta ir transportavimo kainos ir atitinkamai kinta ir pačiu produktu kainos. Taip pat tam gali turėti įtakos ir kai kurių taršų kainos, kuriuos gali didėti ne tik dėl transportavimo išlaidų, bet irgi dėl to, kad kai kurių taršų gamyboje yra panaudojami naftos produktai. Pažymėtina, kad jei maisto produktas nėra būdingas konkrečiam regionui, tai jo kaina augs greičiau negu kitų prekių kainos. Aiškinama tai yra tuo, kad didesniam keliui, kuri prekė turi įveikti prieš patenkant ant parduotuvių lentynų, yra panaudojamas didesnis kuro kiekis ir atitinkamai transportavimui yra išleidžiama didesnė pinigų suma, o augant transportavimo karštoms auga ir pačio produkto kaina, nes verslininkas nori padengti savo karštus didindamas kainas. Tai dėl to, jei auga kuro kainos pirmiausiai augs prekės kainos, tų prekių – kurių transportavimo kelias yra didesnis. Pagal Lietuvos Statistikos Departamentą – kai kuriu prekių kaina sudaro apie 20% transportavimo išlaidos.
+
+Politiniai veiksniai – dar vienas faktorius turintis didelę įtaką maisto produktų kainoms. Dėl skirtingų aplinkybių kainos gali vienoje šalyje pabrangti arba atpigti kitoje. Žmonės klaidingai galvoja, kad šitie veiksniai tik padaro žalą be jokios naudos – kai kada jie gali būti naudingais ir lemti kainų sumažinimą nors ir žaloja ekonomikai. Pavyzdžiui 2014 metų Rusijos prekių embargas sumažino Lietuvos eksportą 35,5% paskelbė 2016 metais Tarptautinių ir plėtros tyrimų institutą Ženevoje (Graduate Institute of International and Development Studies). Bet dėl to maisto prekės ne tik Lietuvoje, bet ir visoje Europoje atpigo, nes verslininkai prarado potencialius vartotojus, esančius Rusijoje ir pasiūla embargo produktams Europoje padidėjo, bet taip pat buvo prarasta didelė dalis produktų, kurie tiesiog buvo sunaikinti arba jų galiojimo laikas baigėsi, kas turėjo negatyvios įtakos fermeriams, verslininkams ir šalių ekonomikai. Taip pat po tam tikro laiko, kai iš rinkos pasišalino kai kurie verslininkai ir pradėta gaminti mažiau, prekės vėl pradėjo brangti, nes dėl nenaudingų verslininkams aplinkybių pasiūla sumažėjo ir situacija normalizavosi.
+```{r, include=TRUE, echo=FALSE, warning=FALSE}
+df <- data.frame(Metai.Menuo = factor(c("2017/12", "2018/01", "2018/02", "2018/03", "2018/04", "2018/05", "2018/06", "2018/07", "2018/08", "2018/09", "2018/10", "2018/11", "2018/12")),
+                 Pokytis = c(0, 0.3, -0.2, 0.4, 0.6, 0.4, 0, -0.5, -0.4, 1.3, 0.6, -0.1, -0.6))
+if(!require(kableExtra)) install.packages("kableExtra"); require(kableExtra)
+library(kableExtra)
+df %>%
+   kable(caption = "Menesinis pokytis palyginant su praeitu menesiu") %>%
+     kable_styling(c("bordered"))
+```
+\newpage
+
+## Maisto produktų 2019 metų kainų pokyčių prognozė, analizė.
+
+Išanalizavę kaip kito kainos 2018 metais ir kokie veiksniai galėjo tam turėti įtakos, palyginus 2018 metų ir ankstesnių metų rodiklius ir išrašę veiksnius, kurie didina arba mažina kainas, galima būtų atsižvelgti į einančius 2019 metus ir pabandyti padaryti apytikslę prognozę šiems metams, atsižvelgiant i visus aukščiau išvardytus rodiklius.
+
+Dėl sezoniškumo efekto kainos kaip visada vėl keisis, kaip jau anksčiau minėta sezoninių prekių kainos krenta, kai ateina jų sezonas, nes tuo tarpų pasiūla didėja greičiau negu paklausa. Taip mandarinų kainos vėl kris artėjant žiemos šventėms, atsižvelgiant į Lietuvos Statistikos Departamento praeitu metų duomenis jos kris apie 50%. Taip pat žiemos sezoną atpigs: apelsinai, ananasai, granatai, vasaros metų tuo tarpu bus pigesni arbūzai, melionai, vynuogės ir kitos prekės. 
+
+Atsižvelgiant į naftos kainų pokyčius, kuriuos turi tiesinį efektą maisto produktų kainoms. Galima teigti, kad maisto prekių kainos, dėl naftos kainų didėjimo efekto 2019 brangs, nes jau buvo matoma, kad naftos produktų kainos padidėjo, viena iš tuo priežasčių yra JAV vykdoma politika prieš Iraną, kurios tikslas yra visiškas Irano naftos produktų uždraudimas, kad susilpninti tos šalies ekonomiką, tam įvykdyti JAV yra pasiruošė įvest sankcijas prieš kiekvieną valstybę perkanti naftos produktus iš Irano, kas jau įvyko su Kiniją (Huawei sankcijos), Indiją ir kitomis rytų valstybėmis, dėl vieno iš didžiausiu naftos eksportuotoju izoliacijos nuo rinkos jau yra pastebimas naftos produktų kainų augimas ir atsižvelgiant į šių šalių santykių įtampa galima teigti, kad naftos kainos tiktai brangs, o paraleliai gali augti ir maisto produktų kainos. Taip pat yra neaiški situacija Venesueloje, kuri yra viena iš didžiausiu regioninių naftos eksportuotojų, šalyje „hiperinfliacija 2018-taisiais pasiekė milijoną procentų.“, viskas tai vyksta dėl „prezidento Nicolasas‘o Maduro, kuris prisiekė naujai 6 metų kadencijai, o opozicijos atstovas Juanas Guaido pasiskelbė tikruoju prezidentu“, tai be abejo tai turi nemažai įtakos naftos produktų kainų augimui, nes šalyje mažėja eksportuojamos naftos produktų kiekis ir todėl didėja kainos. Visi šie veiksniai stimuliuoja naftos produktų kainų augimą, o tai reiškia, kad maisto produktų transportavimo išlaidos pastaruoju metu taip pat brangs ir viskas tai sąlygos pačių maisto produktų kainos didėjimą, ypač tu prekių, kurie nėra gaminami Lietuvoje, o yra eksportuojami iš užsienio. Verta pastebėti, kad taip pat dėl tų pačių priežasčių brangsta ir maisto produktų taršų kainos, ypač tie kurių gamyboje yra naudojami naftos produktai – kas dar daugiau lemia maisto produktų kainų augimą. 
+\newpage
+
+## Išvados
+
+Apibendrinant, galima teigti, kad maisto produktų kainoms turi įtakos daug visokių išorinių veiksnių, nuo sezoniškumo efekto iki politinių ir ekonominių veiksmų. Sezoniškumo efektas turi įtakos tik tam tikrų laikotarpių ir į jį neatsižvelgiama skaičiuojant metinė kainų pakitimo normą. Kaip jau buvo išaiškinta naftos produktų kainos turi tiesinė priklausomybė maisto produktų kainoms, nes jie yra naudojami transportuojant maisto produktus ir gaminant trąšas. Iš visų šių efektų galima išskirti politinius veiksmus – jie yra vienį iš svarbiausių, nes dėl jų kainos gali pakisti daugiausiai ir jie turi įtakos kitiems maisto produktų kainoms turintiems įtakos veiksniams. Galima teigti, kad dėl aukščiau išvardytų priežasčių, kainos maisto produktams 2019 metais lietai augs, tam turi įtakos naftos brangimo efektas, politiniai veiksniai, maža infliacija ir taip toliau.
+\newpage
+
+
+## Literatūra:
+
+
+1. https://www.delfi.lt/agro/agroverslo-naujienos/maisto-kainos-pasaulyje-pakilo-auksciausiai-nuo-2018-metu-birzelio.d?id=81160323
+2. https://www.delfi.lt/verslas/verslas/oficiali-statistika-kaip-ir-kodel-didejo-kainos-po-euro-ivedimo.d?id=79156351
+3. https://www.delfi.lt/verslas/nuomones/i-skackauskaite-ar-brangstanti-nafta-isiubuos-maisto-kainas.d?id=73409672 
+4. https://www.vz.lt/sektoriai/agroverslas/maisto-pramone/2016/10/25/tyrimas-rusijos-prekiu-embargas-lietuviams-atsiejo17-mlrd-eur
+5. https://osp.stat.gov.lt/statistikos-leidiniu-katalogas?p_p_id=101&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&_101_struts_action=%2Fasset_publisher%2Fview_content&_101_returnToFullPageURL=https%3A%2F%2Fosp.stat.gov.lt%2Fen_GB%2Fstatistikos-leidiniu-katalogas%3Fp_auth%3DEcC0O9Im%26p_p_id%3D3%26p_p_lifecycle%3D1%26p_p_state%3Dnormal%26p_p_state_rcv%3D1&_101_assetEntryId=5587314&_101_type=content&_101_urlTitle=vartojimo-prekiu-ir-paslaugu-kainu-pokyc-47&inheritRedirect=true
+6. https://osp.stat.gov.lt/informaciniai-pranesimai?articleId=5616135
+7. https://www.stat.gov.lt/home?p_p_id=101&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&_101_struts_action=%2Fasset_publisher%2Fview_content&_101_returnToFullPageURL=https%3A%2F%2Fwww.stat.gov.lt%2Fhome%3Fp_auth%3DvJSWAgAt%26p_p_id%3D3%26p_p_lifecycle%3D1%26p_p_state%3Dnormal%26p_p_state_rcv%3D1&_101_assetEntryId=5661138&_101_type=content&_101_groupId=10180&_101_urlTitle=vartojimo-prekiu-ir-paslaugu-kainu-pokyc-49&redirect=https%3A%2F%2Fwww.stat.gov.lt%2Fhome%3Fp_p_id%3D3%26p_p_lifecycle%3D0%26p_p_state%3Dmaximized%26p_p_mode%3Dview%26_3_modifieddayTo%3D7%26_3_cur%3D1%26_3_modifiedyearTo%3D2018%26_3_keywords%3Dleidiniai%26_3_entryClassName%3D%26_3_formDate%3D1533756555983%26_3_groupId%3D0%26_3_modifieddayFrom%3D6%26_3_format%3D%26_3_modifiedyearFrom%3D2018%26_3_userName%3D%26_3_modifiedfrom%3D2018%252F04%252F06%26_3_documentsSearchContainerPrimaryKeys%3D15_PORTLET_5616137%252C15_PORTLET_5661129%252C15_PORTLET_5262616%26_3_folderId%3D%26_3_assetCategoryIds%3D%26_3_modifiedselection%3D0%26_3_assetTagNames%3Dcpi%26_3_m
+8. https://osp.stat.gov.lt/statistikos-leidiniu-katalogas?p_p_id=101&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&_101_struts_action=%2Fasset_publisher%2Fview_content&_101_returnToFullPageURL=https%3A%2F%2Fosp.stat.gov.lt%2Fen_GB%2Fstatistikos-leidiniu-katalogas%3Fp_auth%3DNVW8aTb9%26p_p_id%3D3%26p_p_lifecycle%3D1%26p_p_state%3Dnormal%26p_p_state_rcv%3D1&_101_assetEntryId=5701225&_101_type=content&_101_urlTitle=vartojimo-prekiu-ir-paslaugu-kainu-pokyc-50&inheritRedirect=true
+9. https://osp.stat.gov.lt/statistikos-leidiniu-katalogas?p_p_id=101&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&_101_struts_action=%2Fasset_publisher%2Fview_content&_101_returnToFullPageURL=https%3A%2F%2Fosp.stat.gov.lt%2Fstatistikos-leidiniu-katalogas%3Fp_auth%3DY8PsxY5R%26p_p_id%3D3%26p_p_lifecycle%3D1%26p_p_state%3Dnormal%26p_p_state_rcv%3D1&_101_assetEntryId=5733625&_101_type=content&_101_urlTitle=vartojimo-prekiu-ir-paslaugu-kainu-pokyc-51&inheritRedirect=true
+10. https://osp.stat.gov.lt/informaciniai-pranesimai?articleId=5796570
+11. https://osp.stat.gov.lt/statistikos-leidiniu-katalogas?p_p_id=101&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&_101_struts_action=%2Fasset_publisher%2Fview_content&_101_returnToFullPageURL=https%3A%2F%2Fosp.stat.gov.lt%2Fstatistikos-leidiniu-katalogas%3Fp_auth%3DWOdY1Kjf%26p_p_id%3D3%26p_p_lifecycle%3D1%26p_p_state%3Dnormal%26p_p_state_rcv%3D1&_101_assetEntryId=5766947&_101_type=content&_101_urlTitle=vartojimo-prekiu-ir-paslaugu-kainu-pokyc-52&inheritRedirect=true
+12. https://osp.stat.gov.lt/statistikos-leidiniu-katalogas?p_p_id=101&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&_101_struts_action=%2Fasset_publisher%2Fview_content&_101_returnToFullPageURL=https%3A%2F%2Fosp.stat.gov.lt%2Fstatistikos-leidiniu-katalogas%3Fp_auth%3DiGwFU8zj%26p_p_id%3D3%26p_p_lifecycle%3D1%26p_p_state%3Dnormal%26p_p_state_rcv%3D1&_101_assetEntryId=5830010&_101_type=content&_101_urlTitle=vartojimo-prekiu-ir-paslaugu-kainu-pokyc-54&inheritRedirect=true
+13. https://osp.stat.gov.lt/statistikos-leidiniu-katalogas?p_p_id=101&p_p_lifecycle=0&p_p_state=maximized&p_p_mode=view&_101_struts_action=%2Fasset_publisher%2Fview_content&_101_returnToFullPageURL=https%3A%2F%2Fosp.stat.gov.lt%2Fstatistikos-leidiniu-katalogas%3Fp_auth%3D7raM8w0O%26p_p_id%3D3%26p_p_lifecycle%3D1%26p_p_state%3Dnormal%26p_p_state_rcv%3D1&_101_assetEntryId=5874383&_101_type=content&_101_urlTitle=vartojimo-prekiu-ir-paslaugu-kainu-pokyc-55&inheritRedirect=true
+14. https://osp.stat.gov.lt/informaciniai-pranesimai?articleId=5936750
+15. https://osp.stat.gov.lt/informaciniai-pranesimai?articleId=6002158
+16. https://osp.stat.gov.lt/informaciniai-pranesimai?articleId=6071522
+17. https://lt.bestarticleonline.com/5-major-factors-affecting-demand-product
